@@ -109,7 +109,60 @@
         .nav-links a.active::after {
             width: 100%;
         }
-        
+
+
+        /* Hamburger button */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 25px;
+            background-color: #ffffff;
+            border-radius: 2px;
+        }
+
+        /* Mobile view */
+        @media screen and (max-width: 768px) {
+
+            .hero-content{
+                margin-top: -100px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: var(--bg-dark);
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 150px;
+                height: 400px;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+                padding: 1rem 2rem;
+            }
+
+            i.ri-menu-search-fill {
+                font-size: 25px;  /* size */
+                color: var(--text-light);      /* color */
+                cursor: pointer;  /* pointer on hover */
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+
         #home{
             display: flex;
             align-items: center;
@@ -223,11 +276,13 @@
 
         /* About Section */
         .about {
-            background: rgba(255, 255, 255, 0.782);
+            background: rgba(17, 24, 39, 0.95);
             border-radius: 30px;
             padding: 4rem 3rem !important;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             margin-top: 30px;
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 0 6px var(--accent-color);
         }
 
         .about-content {
@@ -249,7 +304,7 @@
             transform: scale(0.8);
             transition: all 0.6s ease;
             position: relative;
-            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+            box-shadow:0 0 7px var(--primary-color);
         }
             .profile-image::before {
             content: '';
@@ -311,7 +366,7 @@
         }
 
         .about-text p {
-            color: var(--text-primary);
+            color: var(--bg-secondary);
             margin-bottom: 1rem;
         }
 
@@ -424,6 +479,16 @@
         }
 
                 /* Projects Section */
+        .cards{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border: 0.5px solid var(--accent-color);
+            padding:1rem 1rem;
+        }
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -431,13 +496,15 @@
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.782);
-            border-radius: 15px;
+            /* background: rgba(255, 255, 255, 0.782); */
+            margin-bottom: -30px;
+            height:400px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             opacity: 0;
-            transform: translateY(30px);
+            border: 0.5px solid var(--accent-color);
+            border-radius: 15px;    
+            box-shadow: 0 0 6px var(--accent-color);
         }
 
         .project-card.visible {
@@ -476,7 +543,7 @@
         font-size: 1.3rem;
         font-weight: 600;
         margin-bottom: 0.5rem;
-        color: var(--text-primary);
+        color: var(--text-light);
     }
 
     .project-description {
@@ -523,7 +590,7 @@
             backdrop-filter: blur(20px);
             color: var(--text-light);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border:1px solid var(--accent-color);
         }
 
         .contact .section-title {

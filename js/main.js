@@ -81,6 +81,16 @@
             }
         }
 
+
+
+        const hamburger = document.getElementById('hamburger');
+        const nav_Links = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            nav_Links.classList.toggle('show');
+        });
+
+
         // Intersection Observer for Animations
         const observerOptions = {
             threshold: 0.1,
