@@ -183,4 +183,11 @@
             });
         });
 
-        
+        //video effect
+        const video = document.getElementById("myVideo");
+
+        // Ensure it stops at the last frame when finished
+        video.addEventListener("ended", () => {
+            video.pause();                // Stop playback
+            video.currentTime = video.duration; // Stay at the last frame
+        });

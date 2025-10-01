@@ -1,5 +1,5 @@
 
-        * {
+       * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -15,6 +15,9 @@
             --bg-primary: #ffffff;
             --bg-secondary: #f9fafb;
             --bg-dark: #111827;
+            --gold:#d2b795;
+            --bgc:#192d3f;
+            --lightBgc:#1f3951;
         }
 
         body {
@@ -22,8 +25,8 @@
             line-height: 1.6;
             color: var(--text-primary);
             overflow-x: hidden;
-            background: linear-gradient(-45deg, #392121, #121208, #0a1343, #130a64);
             animation: gradient-animation 10s ease infinite;
+            background-color: var(--bgc);
         }
 
         .cursor-follower {
@@ -43,7 +46,7 @@
 
         /* Navigation */
         nav {
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--lightBgc);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -183,6 +186,7 @@
             background-size: 400% 400%;
             margin: 0; /* Remove margin-top */
             margin-top: 70px;
+            background: none;
         }
 
         /* .hero {
@@ -207,9 +211,11 @@
         }
 
         .hero-content {
+            margin-top: 40px;
             position: relative;
             z-index: 2;
             color: var(--text-light);
+            background: none;
         }
 
         .hero h1 {
@@ -276,13 +282,13 @@
 
         /* About Section */
         .about {
-            background: rgba(17, 24, 39, 0.95);
+            background: var(--bg-dark);
             border-radius: 30px;
             padding: 4rem 3rem !important;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             margin-top: 30px;
-            border: 1px solid var(--accent-color);
-            box-shadow: 0 0 6px var(--accent-color);
+            border: 1px solid var(--gold);
+            box-shadow: 0 0 6px var(--gold);
         }
 
         .about-content {
@@ -304,7 +310,7 @@
             transform: scale(0.8);
             transition: all 0.6s ease;
             position: relative;
-            box-shadow:0 0 7px var(--primary-color);
+            box-shadow:0 0 7px var(--gold);
         }
             .profile-image::before {
             content: '';
@@ -480,13 +486,14 @@
 
                 /* Projects Section */
         .cards{
+            background-color: var(--bg-dark);
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            border: 0.5px solid var(--accent-color);
+            border: 0.5px solid var(--gold);
             padding:1rem 1rem;
         }
         .projects-grid {
@@ -502,9 +509,9 @@
             overflow: hidden;
             transition: all 0.3s ease;
             opacity: 0;
-            border: 0.5px solid var(--accent-color);
+            border: 0.5px solid var(--gold);
             border-radius: 15px;    
-            box-shadow: 0 0 6px var(--accent-color);
+            box-shadow: 0 0 6px var(--gold);
         }
 
         .project-card.visible {
@@ -801,7 +808,7 @@
 
                 /* Footer Styles */
         .footer {
-            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            background: var(--bg-dark);
             color: var(--text-light);
             padding: 4rem 2rem 2rem;
             margin-top: 5rem;
@@ -1004,3 +1011,15 @@
                 padding-left: 0;
             }
         }
+
+        .video-style {
+            width: 100%;           /* full width of parent container */
+            max-width: 800px;      /* optional: limits max width */
+            height: auto;          /* maintain aspect ratio */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* soft shadow */
+            border-radius: 10px;   /* optional: rounded corners */
+            pointer-events: none;  /* disables hover interactions like PiP */
+            display: block;        /* removes extra space below video */
+            margin: 0 auto;        /* center the video horizontally */
+        }
+
