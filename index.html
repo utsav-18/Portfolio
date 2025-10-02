@@ -6,10 +6,12 @@
     <title>Utsav Developer - Interactive Portfolio</title>
     <link rel="stylesheet" href="/Portfolio/css/main.css">
     <link rel="stylesheet" href="/Portfolio/css/btn-effect.css">
+    <link rel="stylesheet" href="/Portfolio/css/certificates.css">
     <link href="https://cdn.remixicon.com/releases/v1.2.2/remixicon.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+    
 </head>
-<body>
+<body id="main">
     <!-- Cursor Follower -->
     <div class="cursor-follower"></div>
 
@@ -20,7 +22,7 @@
             
             <!-- Hamburger button for mobile -->
             <div class="hamburger" id="hamburger">
-                <i class="ri-menu-search-fill"></i>
+                <i class="ri-menu-3-line" aria-hidden="true"></i>
             </div>
 
             <ul class="nav-links" id="nav-links">
@@ -28,6 +30,7 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#cert-section" class="nav-link">Certificates</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -254,6 +257,47 @@
                 </section>
 
 
+                <!-- certificates section -->
+                <section id="cert-section">  
+                    <div class="cert-title">
+                        <h1>Certificates</h1>
+                    </div>
+                    <div id="second">
+                        <div class="elem"> 
+                            <img src="/Portfolio/images/python.png" alt="">
+                            <h1>Python Programming</h1>
+                            <h5>2024</h5>
+                        </div>
+                        <div class="elem"> 
+                            <img src="/Portfolio/images/database.png" alt="">
+                            <h1>Introduction to Database Systems</h1>
+                            <h5>2024</h5>
+                        </div>
+                        <div class="elem"> 
+                            <img src="/Portfolio/images/ml.png" alt="">
+                            <h1>Introduction to Machine Learning</h1>
+                            <h5>2025</h5>
+                        </div>
+                        <div class="elem"> 
+                            <img src="/Portfolio/images/azure.png" alt="">
+                            <h1>Azure Fundamentals</h1>
+                            <h5>2025</h5>
+                        </div>
+                        <div class="elem"> 
+                            <img src="/Portfolio/images/fwd.png" alt="">
+                            <h1>Web Development Fundamentals</h1>
+                            <h5>2025</h5>
+                        </div>
+                        <div class="elem elemlast"> 
+                            <img src="/Portfolio/images/ai.png" alt="">
+                            <h1>Artificial Intelligence</h1>
+                            <h5>2025</h5>
+                        </div>
+
+                    </div>
+
+                </section>
+
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -341,7 +385,9 @@
 
     <script src="/Portfolio/js/main.js"></script>
     <script src="/Portfolio/js/btn-effect.js"></script>
+    <script src="/Portfolio/js/certificates.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> <!--for gsap -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script> <!-- for smoothscroll -->
 
 </body>
 </html>

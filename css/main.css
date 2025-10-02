@@ -150,7 +150,7 @@
                 padding: 1rem 2rem;
             }
 
-            i.ri-menu-search-fill {
+          .ri-menu-3-line {
                 font-size: 25px;  /* size */
                 color: var(--text-light);      /* color */
                 cursor: pointer;  /* pointer on hover */
