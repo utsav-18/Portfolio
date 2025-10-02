@@ -102,6 +102,13 @@
   #second {
     padding: 18px 4vw 60px;
   }
+  
+  .cert-title h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
 }
 
 /* small tweaks for very narrow phones */
