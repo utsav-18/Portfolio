@@ -506,7 +506,7 @@
         .project-card {
             /* background: rgba(255, 255, 255, 0.782); */
             margin-bottom: -30px;
-            height:400px;
+            height:465px;
             overflow: hidden;
             transition: all 0.3s ease;
             opacity: 0;
