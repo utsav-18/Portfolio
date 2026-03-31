@@ -1033,3 +1033,89 @@
             margin: 0 auto;        /* center the video horizontally */
         }
 
+/* ============================= */
+/* INTERNSHIP SECTION FINAL CSS  */
+/* ============================= */
+
+/* Grid */
+#internships .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+/* Card */
+#internships .cards {
+    background: linear-gradient(145deg, #0f172a, #111827);
+    border-radius: 18px;
+    border: 1px solid var(--gold);
+    padding: 1.2rem;
+    transition: 0.3s ease;
+    box-shadow: 0 0 8px rgba(210, 183, 149, 0.2);
+}
+
+#internships .cards:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Card inner */
+#internships .project-card {
+    border-radius: 12px;
+    overflow: hidden;
+    height: auto;
+    border: none;
+    box-shadow: none;
+}
+
+/* IMAGE CONTAINER */
+#internships .project-image {
+    width: 100%;
+    background: #0b1220;
+    padding: 10px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 🔥 MAIN FIX (NO CUT, ORIGINAL RATIO) */
+#internships .project-image img {
+    width: 100%;
+    height: auto !important;
+    object-fit: unset !important;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+#internships .project-image:hover img {
+    transform: scale(1.02);
+}
+
+/* Content */
+#internships .project-content {
+    padding: 1rem 0.2rem;
+}
+
+/* Title */
+#internships .project-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+/* Description */
+#internships .project-description {
+    font-size: 0.95rem;
+    color: #9ca3af;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #internships .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
