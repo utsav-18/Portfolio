@@ -1037,7 +1037,12 @@
 /* INTERNSHIP SECTION FINAL CSS  */
 /* ============================= */
 
-/* Grid */
+#internships {
+    margin-top: -60px;
+    margin-bottom: 120px;
+}
+
+/* Grid Layout */
 #internships .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -1059,7 +1064,7 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-/* Card inner */
+/* Inner Card */
 #internships .project-card {
     border-radius: 12px;
     overflow: hidden;
@@ -1068,7 +1073,7 @@
     box-shadow: none;
 }
 
-/* IMAGE CONTAINER */
+/* Image Container */
 #internships .project-image {
     width: 100%;
     background: #0b1220;
@@ -1079,11 +1084,12 @@
     align-items: center;
 }
 
-/* 🔥 MAIN FIX (NO CUT, ORIGINAL RATIO) */
+/* 🔥 IMAGE FIX (NO CUT + CONTROL SIZE) */
 #internships .project-image img {
     width: 100%;
-    height: auto !important;
-    object-fit: unset !important;
+    max-height: 260px;       /* desktop size */
+    height: auto;
+    object-fit: contain;
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
@@ -1113,9 +1119,31 @@
     line-height: 1.6;
 }
 
-/* Responsive */
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    #internships .project-image img {
+        max-height: 220px;
+    }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
     #internships .projects-grid {
         grid-template-columns: 1fr;
+    }
+
+    #internships .project-image img {
+        max-height: 180px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    #internships .project-image img {
+        max-height: 150px;
     }
 }
