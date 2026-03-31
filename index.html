@@ -9,7 +9,24 @@
     <link rel="stylesheet" href="/css/certificates.css">
     <link href="https://cdn.remixicon.com/releases/v1.2.2/remixicon.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
-    
+    <style>
+        .internships {
+            padding: 80px 0;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+    </style>
 </head>
 <body id="main">
     <!-- Cursor Follower -->
@@ -30,6 +47,7 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#internships" class="nav-link">Internships</a></li>
                 <li><a href="#cert-section" class="nav-link">Certificates</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -363,6 +381,80 @@
                     </div>
 
                 </section>
+
+
+<!-- Internship Section -->
+<section class="internships" id="internships">
+    <h2 class="section-title">Internships & Experience</h2>
+
+    <div class="projects-grid">
+
+        <!-- IBM Internship -->
+        <div class="cards">
+            <div class="project-card">
+
+                <div class="project-image">
+                    <a href="/images/ibm-cert.png" target="_blank">
+                        <img src="/images/ibm-cert.png" alt="IBM Internship Certificate">
+                    </a>
+                </div>
+
+                <div class="project-content">
+                    <h3 class="project-title">AI & Sustainability Intern – IBM SkillsBuild</h3>
+                    <p class="project-description">
+                        Completed AI-focused internship involving sustainability-based case studies.
+                        Worked on AI-driven solution frameworks, analytics fundamentals, and real-world problem solving.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Edunet Internship -->
+        <div class="cards">
+            <div class="project-card">
+
+                <div class="project-image">
+                    <a href="/images/edunet-cert.png" target="_blank">
+                        <img src="/images/edunet-cert.png" alt="Edunet Internship Certificate">
+                    </a>
+                </div>
+
+                <div class="project-content">
+                    <h3 class="project-title">Frontend Web Development Intern – Edunet Foundation (AICTE)</h3>
+                    <p class="project-description">
+                        Developed responsive web applications using HTML, CSS, and JavaScript.
+                        Focused on UI/UX best practices, performance optimization, and modern frontend development.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Freelance Experience -->
+        <div class="cards">
+            <div class="project-card">
+
+                <div class="project-image">
+                    <a href="/images/freelance-proof.png" target="_blank">
+                        <img src="/images/freelance-proof.png" alt="Freelance Work Proof">
+                    </a>
+                </div>
+
+                <div class="project-content">
+                    <h3 class="project-title">Freelance Web Developer</h3>
+                    <p class="project-description">
+                        Delivered 5+ full-stack web applications using MERN stack.
+                        Integrated Razorpay payments, built REST APIs, and managed databases using MySQL & MongoDB.
+                        Used Git and GitHub for version control and collaboration.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
 
 
     <!-- Contact Section -->
