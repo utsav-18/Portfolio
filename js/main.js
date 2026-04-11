@@ -193,3 +193,29 @@
             video.pause();                // Stop playback
             video.currentTime = video.duration; // Stay at the last frame
         });
+
+        // Generate a circular favicon from the existing PNG for reliable cross-browser rendering.
+        (function setCircularFavicon() {
+            const source = new Image();
+            source.src = 'images/favicon.png?v=4';
+
+            source.onload = () => {
+                const size = 64;
+                const canvas = document.createElement('canvas');
+                canvas.width = size;
+                canvas.height = size;
+                const ctx = canvas.getContext('2d');
+                if (!ctx) return;
+
+                ctx.beginPath();
+                ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.clip();
+                ctx.drawImage(source, 0, 0, size, size);
+
+                const circularDataUrl = canvas.toDataURL('image/png');
+                document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]').forEach((link) => {
+                    link.setAttribute('href', circularDataUrl);
+                });
+            };
+        })();
