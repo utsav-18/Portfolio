@@ -246,29 +246,20 @@
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 6vw, 3.4rem);
             text-align: center;
             margin-bottom: 3rem;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            font-weight: 700;
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.6s ease;
             position: relative;
         }
             .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            border-radius: 2px;
-            animation: expand-line 1s ease forwards;
+            content: none;
         }
 
         @keyframes expand-line {
@@ -602,11 +593,9 @@
         }
 
         .contact .section-title {
-            color: white;
-            background: linear-gradient(45deg, var(--accent-color), #48cc6c);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--gold);
+            background: none;
+            -webkit-text-fill-color: currentColor;
         }
 
         .contact-content {
