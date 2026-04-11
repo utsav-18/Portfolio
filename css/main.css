@@ -25,8 +25,14 @@
             line-height: 1.6;
             color: var(--text-primary);
             overflow-x: hidden;
-            animation: gradient-animation 10s ease infinite;
             background-color: var(--bgc);
+        }
+
+        html,
+        body {
+            max-width: 100%;
+            overscroll-behavior-x: none;
+            scroll-behavior: smooth;
         }
 
         .cursor-follower {
@@ -134,7 +140,7 @@
         @media screen and (max-width: 768px) {
 
             .hero-content{
-                margin-top: -100px;
+                margin-top: 0;
             }
 
             .nav-links {
@@ -162,7 +168,7 @@
 
             .hamburger {
                 display: flex;
-                margin-left: -10px;
+                margin-left: 0;
             }
         }
 
@@ -172,15 +178,20 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            max-width: 100%;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Hero Section */
         .hero {
             min-height: calc(100vh);
-            min-width: calc(100vw);
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -188,6 +199,8 @@
             margin: 0; /* Remove margin-top */
             margin-top: 70px;
             background: none;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
 
         /* .hero {
@@ -217,6 +230,15 @@
             z-index: 2;
             color: var(--text-light);
             background: none;
+            width: min(100%, 920px);
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero h1 {
@@ -233,6 +255,8 @@
             margin-bottom: 2rem;
             opacity: 0;
             animation: slideUp 1s ease 0.7s forwards;
+            text-align: center;
+            width: 100%;
         }
 
 
@@ -382,6 +406,7 @@
 
         .skill-item {
             background: rgba(255, 255, 255, 0.782);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             padding: 2rem;
             border-radius: 20px;
@@ -586,6 +611,7 @@
         .contact {
             border-radius: 30px;
             background: rgba(17, 24, 39, 0.95);
+            -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
             color: var(--text-light);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -625,6 +651,7 @@
             color: white;
             border-radius: 10px;
             transition: all 0.3s ease;
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
 
@@ -770,6 +797,15 @@
 
             .hero{
                 margin-top: 20px;
+                min-height: calc(100svh - 20px);
+            }
+
+            .hero-content {
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+                max-width: 560px;
+                text-align: center;
             }
 
             .nav-links {
@@ -797,6 +833,29 @@
             .skills-grid,
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .hero::before,
+            .skill-icon,
+            .progress-bar::after,
+            .heart {
+                animation: none !important;
+            }
+
+            .project-card,
+            .skill-item,
+            .contact-item,
+            .submit-btn {
+                transition-duration: 0.2s;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
             }
         }
         

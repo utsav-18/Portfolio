@@ -1,32 +1,36 @@
 
-        // Cursor Follower
+        const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+        // Cursor follower is desktop-only to avoid unnecessary animation work on touch devices.
         const cursorFollower = document.querySelector('.cursor-follower');
-        let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
+        if (cursorFollower && !isTouchDevice) {
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
 
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            cursorFollower.style.opacity = '1';
-        });
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursorFollower.style.opacity = '1';
+            });
 
-        document.addEventListener('mouseleave', () => {
-            cursorFollower.style.opacity = '0';
-        });
+            document.addEventListener('mouseleave', () => {
+                cursorFollower.style.opacity = '0';
+            });
 
-        function animateCursor() {
-            const diffX = mouseX - cursorX;
-            const diffY = mouseY - cursorY;
-            
-            cursorX += diffX * 0.1;
-            cursorY += diffY * 0.1;
-            
-            cursorFollower.style.left = cursorX + 'px';
-            cursorFollower.style.top = cursorY + 'px';
-            
-            requestAnimationFrame(animateCursor);
+            function animateCursor() {
+                const diffX = mouseX - cursorX;
+                const diffY = mouseY - cursorY;
+
+                cursorX += diffX * 0.1;
+                cursorY += diffY * 0.1;
+
+                cursorFollower.style.left = cursorX + 'px';
+                cursorFollower.style.top = cursorY + 'px';
+
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
         }
-        animateCursor();
 
         // Smooth Scrolling Navigation
         document.querySelectorAll('.nav-link, .hero-btn, .scroll-btn').forEach(el => {
@@ -86,9 +90,17 @@
         const hamburger = document.getElementById('hamburger');
         const nav_Links = document.getElementById('nav-links');
 
-        hamburger.addEventListener('click', () => {
-            nav_Links.classList.toggle('show');
-        });
+        if (hamburger && nav_Links) {
+            hamburger.addEventListener('click', () => {
+                nav_Links.classList.toggle('show');
+            });
+
+            nav_Links.querySelectorAll('.nav-link').forEach((link) => {
+                link.addEventListener('click', () => {
+                    nav_Links.classList.remove('show');
+                });
+            });
+        }
 
 
         // Intersection Observer for Animations
@@ -123,76 +135,84 @@
         //Sumbit button
         const form = document.querySelector('form');
 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault(); // <-- stop the page from reloading
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
 
-            const submitBtn = e.target.querySelector('.submission');
-            const textSpan = submitBtn.querySelector('span'); // target inner span
-            const originalText = textSpan.textContent;
+                const submitBtn = e.target.querySelector('.submission');
+                const textSpan = submitBtn ? submitBtn.querySelector('span') : null;
+                if (!submitBtn || !textSpan) return;
 
-            textSpan.textContent = 'Sending...';
-            submitBtn.disabled = true;
+                const originalText = textSpan.textContent;
 
-            setTimeout(() => {
-                textSpan.textContent = 'Message Sent! ✓';
+                textSpan.textContent = 'Sending...';
+                submitBtn.disabled = true;
+
                 setTimeout(() => {
-                    textSpan.textContent = originalText;
-                    submitBtn.disabled = false;
-                    e.target.reset();
-                }, 2000);
-            }, 1500);
-        });
+                    textSpan.textContent = 'Message Sent! ✓';
+                    setTimeout(() => {
+                        textSpan.textContent = originalText;
+                        submitBtn.disabled = false;
+                        e.target.reset();
+                    }, 2000);
+                }, 1500);
+            });
+        }
 
-        // Scroll Event Listeners
-        window.addEventListener('scroll', () => {
-            updateActiveNav();
-            updateNavbar();
-        });
+        // Scroll Event Listeners (RAF throttled + passive for smoother mobile scrolling)
+        let ticking = false;
+        function onScroll() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    updateActiveNav();
+                    updateNavbar();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
 
         // Project Card Hover Effects
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                cursorFollower.style.transform = 'scale(2)';
+        if (cursorFollower && !isTouchDevice) {
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    cursorFollower.style.transform = 'scale(2)';
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    cursorFollower.style.transform = 'scale(1)';
+                });
             });
-            
-            card.addEventListener('mouseleave', () => {
-                cursorFollower.style.transform = 'scale(1)';
-            });
-        });
+        }
 
         // Initialize
         updateActiveNav();
         updateNavbar();
         
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                cursorFollower.style.transform = 'scale(2)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                cursorFollower.style.transform = 'scale(1)';
-            });
-        });
-
         // Link Hover Effects
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                cursorFollower.style.transform = 'scale(1.5)';
+        if (cursorFollower && !isTouchDevice) {
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    cursorFollower.style.transform = 'scale(1.5)';
+                });
+
+                link.addEventListener('mouseleave', () => {
+                    cursorFollower.style.transform = 'scale(1)';
+                });
             });
-            
-            link.addEventListener('mouseleave', () => {
-                cursorFollower.style.transform = 'scale(1)';
-            });
-        });
+        }
 
         //video effect
         const video = document.getElementById("myVideo");
 
-        // Ensure it stops at the last frame when finished
-        video.addEventListener("ended", () => {
-            video.pause();                // Stop playback
-            video.currentTime = video.duration; // Stay at the last frame
-        });
+        if (video) {
+            // Ensure it stops at the last frame when finished.
+            video.addEventListener("ended", () => {
+                video.pause();
+                video.currentTime = video.duration;
+            });
+        }
 
         // Generate a circular favicon from the existing PNG for reliable cross-browser rendering.
         (function setCircularFavicon() {

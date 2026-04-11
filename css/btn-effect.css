@@ -39,7 +39,7 @@ button {
 		var(--glow),
 		linear-gradient(black, black) border-box;
 	transition: background-size 0.24s;
-	touch-action: none;
+	touch-action: manipulation;
 	position: relative;
 	padding: 1rem 2rem;
 }
@@ -82,12 +82,46 @@ button::after {
 
 .social-btn{
     display: flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+	max-width: 100%;
+	flex-wrap: wrap;
     gap: 30px;
     margin-top: 60px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hero-content .social-btn {
+	margin-left: auto;
+	margin-right: auto;
+	justify-content: center;
+	align-items: center;
+}
+
+.hero .scroll-btn {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hero .social-btn.hero-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.cards .social-btn {
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .footer-btn {
     display: flex;
+	justify-content: flex-start;
+	width: auto;
     gap: 15px;          /* reduced from 10px */
 }
 
@@ -140,9 +174,6 @@ button::after {
         font-size: 0.8rem;
     }
 
-		.hero-btn{
-		display: none;
-	}
 }
 
 @media (max-width: 480px) {
