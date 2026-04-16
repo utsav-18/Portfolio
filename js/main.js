@@ -132,30 +132,52 @@
         });
 
 
-        //Sumbit button
-        const form = document.querySelector('form');
+        // Contact form submit to Google Sheets (Apps Script Web App URL).
+        const form = document.getElementById('contactForm');
 
         if (form) {
-            form.addEventListener('submit', (e) => {
+            form.addEventListener('submit', async (e) => {
                 e.preventDefault();
 
-                const submitBtn = e.target.querySelector('.submission');
+                const submitBtn = form.querySelector('.submission');
                 const textSpan = submitBtn ? submitBtn.querySelector('span') : null;
                 if (!submitBtn || !textSpan) return;
 
                 const originalText = textSpan.textContent;
+                const sheetUrl = form.dataset.sheetUrl || '';
+
+                if (!sheetUrl) {
+                    textSpan.textContent = 'Set Sheet URL';
+                    setTimeout(() => {
+                        textSpan.textContent = originalText;
+                    }, 2000);
+                    return;
+                }
 
                 textSpan.textContent = 'Sending...';
                 submitBtn.disabled = true;
 
-                setTimeout(() => {
+                try {
+                    const formData = new FormData(form);
+                    formData.append('submittedAt', new Date().toISOString());
+
+                    await fetch(sheetUrl, {
+                        method: 'POST',
+                        body: formData,
+                        mode: 'no-cors'
+                    });
+
                     textSpan.textContent = 'Message Sent! ✓';
+                    form.reset();
+                } catch (error) {
+                    textSpan.textContent = 'Failed. Retry';
+                    console.error('Google Sheet submit failed:', error);
+                } finally {
                     setTimeout(() => {
                         textSpan.textContent = originalText;
                         submitBtn.disabled = false;
-                        e.target.reset();
                     }, 2000);
-                }, 1500);
+                }
             });
         }
 
