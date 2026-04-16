@@ -169,6 +169,7 @@
 
                     textSpan.textContent = 'Message Sent! ✓';
                     form.reset();
+                    alert('We received your message!');
                 } catch (error) {
                     textSpan.textContent = 'Failed. Retry';
                     console.error('Google Sheet submit failed:', error);
