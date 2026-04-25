@@ -25,14 +25,14 @@
         }
 
         body.dark-mode {
-            --bgc: #0d1a26;
-            --lightBgc: #122535;
-            --bg-dark: #0b1320;
-            --text-secondary: #9fb0c2;
-            --card-surface: rgba(16, 25, 39, 0.85);
-            --image-fallback: #101b2a;
-            --input-bg: rgba(15, 26, 40, 0.92);
-            --input-focus-bg: rgba(11, 21, 34, 1);
+            --bgc: #070f18;
+            --lightBgc: #0c1a29;
+            --bg-dark: #050b14;
+            --text-secondary: #b3c0cf;
+            --card-surface: rgba(9, 16, 27, 0.92);
+            --image-fallback: #0a1522;
+            --input-bg: rgba(9, 18, 30, 0.95);
+            --input-focus-bg: rgba(6, 14, 24, 1);
         }
 
         body {
