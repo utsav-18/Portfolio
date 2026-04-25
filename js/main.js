@@ -283,18 +283,36 @@
             source.src = 'images/deadpool.jpg?v=1';
 
             source.onload = () => {
-                const size = 64;
+                // Render a larger icon so browsers downscale crisply.
+                const size = 256;
                 const canvas = document.createElement('canvas');
                 canvas.width = size;
                 canvas.height = size;
                 const ctx = canvas.getContext('2d');
                 if (!ctx) return;
 
+                // Cover-fit crop so the subject stays centered without distortion.
+                const srcAspect = source.width / source.height;
+                const dstAspect = 1;
+                let sx = 0;
+                let sy = 0;
+                let sWidth = source.width;
+                let sHeight = source.height;
+
+                if (srcAspect > dstAspect) {
+                    sWidth = source.height * dstAspect;
+                    sx = (source.width - sWidth) / 2;
+                } else {
+                    sHeight = source.width / dstAspect;
+                    sy = (source.height - sHeight) / 2;
+                }
+
+                ctx.clearRect(0, 0, size, size);
                 ctx.beginPath();
                 ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
                 ctx.closePath();
                 ctx.clip();
-                ctx.drawImage(source, 0, 0, size, size);
+                ctx.drawImage(source, sx, sy, sWidth, sHeight, 0, 0, size, size);
 
                 const circularDataUrl = canvas.toDataURL('image/png');
                 document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]').forEach((link) => {
