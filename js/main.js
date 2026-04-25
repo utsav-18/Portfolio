@@ -277,10 +277,10 @@
             });
         }
 
-        // Generate a circular favicon from the existing PNG for reliable cross-browser rendering.
+        // Generate a circular favicon from the Deadpool image for reliable cross-browser rendering.
         (function setCircularFavicon() {
             const source = new Image();
-            source.src = 'images/favicon.png?v=4';
+            source.src = 'images/deadpool.jpg?v=1';
 
             source.onload = () => {
                 const size = 64;
