@@ -22,6 +22,8 @@
             --image-fallback: #f0f0f0;
             --input-bg: rgba(31, 41, 55, 0.8);
             --input-focus-bg: rgba(31, 41, 55, 1);
+            --skill-title-color: #111827;
+            --skill-text-color: #374151;
         }
 
         body.dark-mode {
@@ -33,6 +35,8 @@
             --image-fallback: #0a1522;
             --input-bg: rgba(9, 18, 30, 0.95);
             --input-focus-bg: rgba(6, 14, 24, 1);
+            --skill-title-color: #f3f4f6;
+            --skill-text-color: #cbd5e1;
         }
 
         body {
@@ -501,6 +505,14 @@
         .skill-item:hover {
             transform: translateY(-10px) rotateX(5deg);
             box-shadow: 0 20px 50px rgba(99, 102, 241, 0.3);
+        }
+
+        .skill-item h3 {
+            color: var(--skill-title-color);
+        }
+
+        .skill-item p {
+            color: var(--skill-text-color);
         }
 
         .skill-icon {
