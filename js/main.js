@@ -132,12 +132,18 @@
 
         if (hamburger && nav_Links) {
             hamburger.addEventListener('click', () => {
-                nav_Links.classList.toggle('show');
+                const isOpen = nav_Links.classList.toggle('show');
+                hamburger.classList.toggle('is-open', isOpen);
+                hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                hamburger.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
             });
 
             nav_Links.querySelectorAll('.nav-link').forEach((link) => {
                 link.addEventListener('click', () => {
                     nav_Links.classList.remove('show');
+                    hamburger.classList.remove('is-open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    hamburger.setAttribute('aria-label', 'Open navigation menu');
                 });
             });
         }
