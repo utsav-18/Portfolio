@@ -53,6 +53,46 @@
             });
         });
 
+        // Theme toggle (default <-> dark mode) with localStorage persistence.
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const THEME_STORAGE_KEY = 'portfolio-theme';
+
+        function applyTheme(theme) {
+            const isDark = theme === 'dark';
+            document.body.classList.toggle('dark-mode', isDark);
+
+            if (!themeToggleBtn) return;
+            const icon = themeToggleBtn.querySelector('i');
+            if (icon) {
+                icon.className = isDark ? 'ri-sun-line' : 'ri-moon-line';
+            }
+
+            const label = isDark ? 'Switch to default theme' : 'Switch to dark mode';
+            themeToggleBtn.setAttribute('aria-label', label);
+            themeToggleBtn.setAttribute('title', label);
+        }
+
+        let savedTheme = 'default';
+        try {
+            savedTheme = localStorage.getItem(THEME_STORAGE_KEY) || 'default';
+        } catch (error) {
+            savedTheme = 'default';
+        }
+        applyTheme(savedTheme === 'dark' ? 'dark' : 'default');
+
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                const nextTheme = document.body.classList.contains('dark-mode') ? 'default' : 'dark';
+                applyTheme(nextTheme);
+
+                try {
+                    localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+                } catch (error) {
+                    // Ignore storage errors and continue with in-memory theme state.
+                }
+            });
+        }
+
         // Navigation Active State
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('section');
