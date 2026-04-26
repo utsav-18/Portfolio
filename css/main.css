@@ -9,15 +9,15 @@
             --primary-color: #6366f1;
             --secondary-color: #8b5cf6;
             --accent-color: #06d6a0;
-            --text-primary: #1f2937;
+            --text-primary: #0f172a;
             --text-secondary: #6b7280;
             --text-light: #ffffff;
             --bg-primary: #ffffff;
             --bg-secondary: #f9fafb;
             --bg-dark: #111827;
             --gold:#d2b795;
-            --bgc:#132636;
-            --lightBgc:#1a3248;
+            --bgc:#244766;
+            --lightBgc:#325a7e;
             --card-surface: rgba(255, 255, 255, 0.782);
             --image-fallback: #f0f0f0;
             --input-bg: rgba(31, 41, 55, 0.8);
@@ -27,14 +27,15 @@
         }
 
         body.dark-mode {
-            --bgc: #070f18;
-            --lightBgc: #0c1a29;
-            --bg-dark: #050b14;
-            --text-secondary: #b3c0cf;
-            --card-surface: rgba(9, 16, 27, 0.92);
-            --image-fallback: #0a1522;
-            --input-bg: rgba(9, 18, 30, 0.95);
-            --input-focus-bg: rgba(6, 14, 24, 1);
+            --bgc: #02060e;
+            --lightBgc: #07111d;
+            --bg-dark: #01050c;
+            --text-primary: #edf2ff;
+            --text-secondary: #c5d2e3;
+            --card-surface: rgba(5, 10, 18, 0.94);
+            --image-fallback: #08101b;
+            --input-bg: rgba(6, 12, 20, 0.96);
+            --input-focus-bg: rgba(4, 8, 14, 1);
             --skill-title-color: #f3f4f6;
             --skill-text-color: #cbd5e1;
         }
