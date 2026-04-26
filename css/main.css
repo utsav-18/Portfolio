@@ -10,20 +10,21 @@
             --secondary-color: #8b5cf6;
             --accent-color: #06d6a0;
             --text-primary: #0f172a;
-            --text-secondary: #6b7280;
+            --text-secondary: #475569;
+            --text-on-dark-secondary: #d6e1ee;
             --text-light: #ffffff;
             --bg-primary: #ffffff;
             --bg-secondary: #f9fafb;
             --bg-dark: #111827;
             --gold:#d2b795;
-            --bgc:#244766;
-            --lightBgc:#325a7e;
-            --card-surface: rgba(255, 255, 255, 0.782);
-            --image-fallback: #f0f0f0;
+            --bgc:#2b5378;
+            --lightBgc:#3a6690;
+            --card-surface: rgba(255, 255, 255, 0.93);
+            --image-fallback: #dbe7f5;
             --input-bg: rgba(31, 41, 55, 0.8);
             --input-focus-bg: rgba(31, 41, 55, 1);
-            --skill-title-color: #111827;
-            --skill-text-color: #374151;
+            --skill-title-color: #0b1220;
+            --skill-text-color: #1f2937;
         }
 
         body.dark-mode {
@@ -32,6 +33,7 @@
             --bg-dark: #01050c;
             --text-primary: #edf2ff;
             --text-secondary: #c5d2e3;
+            --text-on-dark-secondary: #d6e1ee;
             --card-surface: rgba(5, 10, 18, 0.94);
             --image-fallback: #08101b;
             --input-bg: rgba(6, 12, 20, 0.96);
@@ -473,6 +475,7 @@
             background: var(--card-surface);
             -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(15, 23, 42, 0.12);
             padding: 2rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -644,7 +647,7 @@
     }
 
     .project-description {
-        color: var(--text-secondary);
+        color: var(--text-on-dark-secondary);
         margin-bottom: 1rem;
     }
 
@@ -1009,7 +1012,7 @@
         }
 
         .footer-section p {
-            color: #9ca3af;
+            color: #cbd5e1;
             line-height: 1.8;
             margin-bottom: 1.5rem;
         }
@@ -1085,7 +1088,7 @@
         }
 
         .footer-links a {
-            color: #9ca3af;
+            color: #d1d9e6;
             transition: color 0.3s ease;
         }
 
@@ -1243,7 +1246,7 @@
 /* Description */
 #internships .project-description {
     font-size: 0.95rem;
-    color: #9ca3af;
+    color: var(--text-on-dark-secondary);
     line-height: 1.6;
 }
 
